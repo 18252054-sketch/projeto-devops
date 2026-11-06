@@ -1,0 +1,15 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Baixar o código
+      uses: actions/checkout@v3
+
+    - name: Testar build do Docker Compose
+      run: docker-compose build
